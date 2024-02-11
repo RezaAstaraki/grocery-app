@@ -7,9 +7,10 @@ export default function Items({ items, handleStatus, removeItem }) {
       {items.map((item, index) => {
         return (
           <div
-            key={index}
+            key={item.id}
             className={item.status === "done" ? "item done" : "item pending"}
-            onClick={() => handleStatus(item)}
+            // onClick={() => handleStatus(item)}
+            onClick={(event) => handleStatus(item, event)}
           >
             <div>{index + 1}</div>
             {item.content}

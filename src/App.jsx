@@ -7,7 +7,8 @@ function App() {
   const [item, setItem] = useState([]);
 
   const addItem = (content) => {
-    setItem([...item, { content: content, status: "pending" }]);
+    let id = Date.now();
+    setItem([...item, { id: id, content: content, status: "pending" }]);
   };
 
   const removeItem = (itemToRemove) => {
@@ -17,7 +18,13 @@ function App() {
     console.log("newItems", newItems);
   };
 
-  const handleStatus = (inputItem) => {
+  const handleStatus = (inputItem, event) => {
+    console.log("event", event);
+    // Check if the event target is the close button
+    if (event.target.tagName.toLowerCase() === "button") {
+      event.stopPropagation(); // Prevent event from bubbling up
+      return;
+    }
     let itemEdit;
     itemEdit = item.map((i) => {
       if (i === inputItem) {
