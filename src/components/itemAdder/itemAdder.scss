@@ -13,7 +13,8 @@
     font-size: 2rem;
     padding: 5px;
   }
-  button {
+  input[type="button"] {
+    width: 150px;
     padding: 15px;
     font-size: 2rem;
     border: none;

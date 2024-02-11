@@ -9,9 +9,9 @@ export default function Items({ items, handleStatus, removeItem }) {
           <div
             key={item.id}
             className={item.status === "done" ? "item done" : "item pending"}
-            // onClick={() => handleStatus(item)}
             onClick={(event) => handleStatus(item, event)}
           >
+            {item.status === "done" && <hr />}
             <div>{index + 1}</div>
             {item.content}
             <div>

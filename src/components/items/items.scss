@@ -13,12 +13,23 @@
     gap: 3rem;
     padding: 0.75rem 3rem 0.75rem 0.75rem;
     border-radius: 15px;
+    cursor: pointer;
     &:first-child {
       margin-top: 3rem;
     }
 
     span {
       user-select: none;
+    }
+
+    hr {
+      position: absolute;
+      width: 90%;
+      display: block;
+      top: 50%;
+      align-self: center;
+      color: red;
+      margin: auto;
     }
 
     button {

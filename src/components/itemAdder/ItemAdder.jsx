@@ -7,12 +7,13 @@ export default function ItemAdder({ items, addItem }) {
     <div className="itemAdder">
       <label htmlFor="inputItem">Item</label>
       <input
+        required={true}
         id="inputItem"
         type="text"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <button onClick={() => addItem(content)}>Add</button>
+      <input type="button" value="add" onClick={() => addItem(content)} />
     </div>
   );
 }

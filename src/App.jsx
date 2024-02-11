@@ -7,6 +7,9 @@ function App() {
   const [item, setItem] = useState([]);
 
   const addItem = (content) => {
+    if (content == "") {
+      return;
+    }
     let id = Date.now();
     setItem([...item, { id: id, content: content, status: "pending" }]);
   };
@@ -19,7 +22,6 @@ function App() {
   };
 
   const handleStatus = (inputItem, event) => {
-    console.log("event", event);
     // Check if the event target is the close button
     if (event.target.tagName.toLowerCase() === "button") {
       event.stopPropagation(); // Prevent event from bubbling up
