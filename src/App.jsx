@@ -6,17 +6,32 @@ import Items from "./components/items/Items";
 function App() {
   const [item, setItem] = useState([]);
 
-  const addItem = (content) => {
+  const addItem = (content, ref) => {
+    //handle repetitive and empty
     if (content == "") {
+      //should change better
+      ref.focus();
+      window.alert("input is empty");
+
       return;
     }
+    for (const i of item) {
+      if (i.content === content) {
+        //should change better
+        ref.focus();
+        window.alert("item already exist");
+        ref.select();
+        return;
+      }
+    }
+    // add item
     let id = Date.now();
     setItem([...item, { id: id, content: content, status: "pending" }]);
   };
 
   const removeItem = (itemToRemove) => {
     const newItems = item.filter((i) => i !== itemToRemove);
-    console.log("run remove item");
+    // console.log("run remove item");
     setItem(newItems);
     console.log("newItems", newItems);
   };
@@ -35,7 +50,7 @@ function App() {
       return i;
     });
 
-    console.log("itemEdit", itemEdit);
+    // console.log("itemEdit", itemEdit);
     setItem(itemEdit);
   };
 
